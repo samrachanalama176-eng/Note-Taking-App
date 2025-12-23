@@ -1,0 +1,41 @@
+notes = []
+
+def display_menu():
+    print("\nNote Taking App:")
+    print("1. Add a Note")
+    print("2. View Notes")
+    print("3. Clear all Notes")
+    print("4. Exit")
+    return input("Choose a choice (1-4): ")
+
+def add_note():
+    note = input("Enter your note: ")
+    notes.append(note)
+    print("Note added successfully!")
+
+def view_notes():
+    if len(notes) == 0:
+        print("No notes available.")
+    else:
+        print("Your Notes:")
+        for i, note in enumerate(notes, start=1):
+            print(i, ".", note)
+
+def clear_notes():
+    notes.clear()
+    print("All notes cleared!")
+
+while True:
+    choice = display_menu()
+
+    if choice == "1":
+        add_note()
+    elif choice == "2":
+        view_notes()
+    elif choice == "3":
+        clear_notes()
+    elif choice == "4":
+        print("Exiting Note Taking App")
+        break
+    else:
+        print("Invalid choice. Please try again.")
